@@ -103,8 +103,7 @@ class CNNChannel(nn.Module):
         self.fc1 = nn.Linear(in_features=flatten_size, out_features=100)
         self.fc2 = nn.Linear(in_features=100, out_features=2)
 
-    # TODO: complete this method
-    def forward(self, inp):# Do NOT change the signature of this function
+    def forward(self, inp):
         '''
           prerequests:
           parameter inp: the input image, pytorch tensor
