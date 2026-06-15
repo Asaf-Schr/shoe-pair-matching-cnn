@@ -3,13 +3,13 @@ import torch
 import torch.nn as nn
 
 class CNN(nn.Module):
-    def __init__(self): # Do NOT change the signature of this function
+    def __init__(self): 
         super(CNN, self).__init__()
         n = 32
         kernel_size = 5
         padding = (kernel_size-1)//2
         self.conv1 = nn.Conv2d(in_channels=3,out_channels=n,kernel_size=kernel_size,padding=padding)
-        # TODO: complete this method
+    
         # layer 2: n -> 2n
         self.conv2 = nn.Conv2d(in_channels=n, out_channels=2*n, kernel_size=kernel_size, padding=padding)
         # layer 3: 2n -> 4n
@@ -31,7 +31,7 @@ class CNN(nn.Module):
         self.fc1 = nn.Linear(in_features=flatten_size, out_features=100)
         self.fc2 = nn.Linear(in_features=100, out_features=2) # same pair vs different pair
 
-    def forward(self, inp):# Do NOT change the signature of this function
+    def forward(self, inp):
         '''
           prerequests:
           parameter inp: the input image, pytorch tensor.
@@ -47,7 +47,6 @@ class CNN(nn.Module):
             2 := same/different pair
         '''
         out = self.conv1(inp)
-        # TODO: complete this function
         #B1
         out = self.relu(out)
         out = self.pool(out)
@@ -75,9 +74,9 @@ class CNN(nn.Module):
         return out
 
 class CNNChannel(nn.Module):
-    def __init__(self):# Do NOT change the signature of this function
+    def __init__(self):
         super(CNNChannel, self).__init__()
-        # TODO: complete this method
+    
         n = 32
         kernel_size = 5
         padding = (kernel_size-1)//2
@@ -120,8 +119,7 @@ class CNNChannel(nn.Module):
             N := batch size
             2 := same/different pair
         '''
-        # TODO start by changing the shape of the input to (N,6,224,224)
-        # TODO: complete this function
+        
         shoe1 = inp[:, :, :224, :] 
         shoe2 = inp[:, :, 224:, :]
         
